@@ -1,14 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Button } from 'antd';
 import './App.css';
+import TestChangeI18n from './components/TestChangeI18n';
+import { GlobalStyle } from './style';
 
-function App() {
-  return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
-  );
+const App = () => {
+    return (
+        <>
+            <GlobalStyle />
+            <div className="App">
+                aaa
+            </div>
+        </>
+    );
 }
 
 export default App;
