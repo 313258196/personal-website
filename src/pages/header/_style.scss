@@ -1,5 +1,42 @@
 .header-block{
     height: 50px;
     line-height: 50px;
-    background-color: red;
+    padding: 0 50px;
+    font-size: 30px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .menu-btn{
+        width: 34px;
+        height:18px;
+        position: relative;
+        cursor: pointer;
+
+        .line{
+            cursor: pointer;
+            width: 100%;
+            border-top: 1px solid #333;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &.line1{
+                top: 9px;
+            }
+            &.line2{
+                top: 18px;
+            }
+        }
+    }
+
+    .icon-close-out{
+        // color: #bdc3c7;
+    }
+    ::v-deep .close-block{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 }
