@@ -57,6 +57,7 @@
     "@storybook/testing-library": "^0.0.11",
     "babel-plugin-named-exports-order": "^0.0.2",
     "prop-types": "^15.8.1",
+    "react-transition-group": "^4.4.2",
     "webpack": "^5.72.1"
   },
   "eslintConfig": {
