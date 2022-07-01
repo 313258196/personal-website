@@ -101,7 +101,7 @@
 .nav-bar-appear-active {
     opacity: 1;
     margin-right: 0;
-    transition: all .5s ease-in;
+    transition: all .5 s ease-in;
 }
 
 /*入场动画结束*/
@@ -120,7 +120,7 @@
 .nav-bar-exit-active {
     opacity: 0;
     margin-right: -400px;
-    transition: all .5s ease-out;
+    transition: all .5 s ease-out;
 }
 
 /*离场动画结束*/
