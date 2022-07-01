@@ -40,3 +40,93 @@
     opacity: 1;
     transition: opacity 1s ease-in;
 }
+
+// fixed-bg
+/*入场动画开始*/
+.fixed-bg-enter {
+    opacity: 0;
+}
+
+/*入场动画过程*/
+.fixed-bg-enter-active {
+    opacity: 1;
+    transition: opacity .3s ease-in;
+}
+
+/*入场动画结束*/
+.fixed-bg-enter-done {
+    opacity: 1;
+}
+
+/*离场动画开始*/
+.fixed-bg-exit {
+    opacity: 1;
+}
+
+/*离场动画过程*/
+.fixed-bg-exit-active {
+    opacity: 0;
+    transition: opacity .3s ease-out;
+}
+
+/*离场动画结束*/
+.fixed-bg-exit-done {
+    opacity: 0;
+}
+
+/*页面第一次加载时的开始状态*/
+.fixed-bg-appear {
+    opacity: 0;
+}
+
+/*页面第一次加载时的动画过程*/
+.fixed-bg-appear-active {
+    opacity: 1;
+    transition: opacity .3s ease-in;
+}
+
+// fixed-bg
+
+// nav-bar
+
+/*入场动画开始*/
+.nav-bar-enter,
+.nav-bar-appear {
+    opacity: 0;
+    margin-right: -400px;
+}
+
+/*入场动画过程*/
+.nav-bar-enter-active,
+.nav-bar-appear-active {
+    opacity: 1;
+    margin-right: 0;
+    transition: all .5s ease-in;
+}
+
+/*入场动画结束*/
+.nav-bar-enter-done {
+    opacity: 1;
+    margin-right: 0;
+}
+
+/*离场动画开始*/
+.nav-bar-exit {
+    opacity: 1;
+    margin-right: 0;
+}
+
+/*离场动画过程*/
+.nav-bar-exit-active {
+    opacity: 0;
+    margin-right: -400px;
+    transition: all .5s ease-out;
+}
+
+/*离场动画结束*/
+.nav-bar-exit-done {
+    opacity: 0;
+    margin-right: -400px;
+}
+
+// nav-bar

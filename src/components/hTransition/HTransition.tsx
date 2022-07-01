@@ -1,29 +1,33 @@
-import React, { FC, useState } from "react";
-import classNames from "classnames";
+import React, { FC, ReactNode, useRef, useState } from "react";
 
-import { CSSTransition } from "react-transition-group"
-import { CSSTransitionProps } from 'react-transition-group'
+import { CSSTransition, CSSTransitionProps } from "react-transition-group"
 
 export type AnimationsName = "fade"
 
-export type HTransitionProps = CSSTransitionProps & {
+export type HTransitionProps = (typeof CSSTransitionProps) & {
     visiable: boolean
     className?: string
     animation?: AnimationsName
     timeout?: Number
+    children: ReactNode
 }
 
-const HTransition: FC<HTransitionProps> = ({ className, visiable, animation, timeout, ...restProp }) => {
-    const [show, setShow] = useState(visiable)
+const HTransition: FC<HTransitionProps> = ({ className, visiable, animation, timeout, children, ...restProp }) => {
+    // const [show, setShow] = useState(visiable)
+    // // 解决了报错，但是动画失效了
+    // // const useReft = useRef(null)
+
+    console.log(2222,visiable,className ? className : animation)
 
     return (
         <CSSTransition
-            in={show}
+            // nodeRef={useReft}
+            in={visiable}
             timeout={timeout || 1000}
             classNames={className ? className : animation}
             {...restProp}
         >
-            <div>hello</div>
+            {children}
         </CSSTransition>
     )
 }
