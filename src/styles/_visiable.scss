@@ -1,0 +1,49 @@
+// mixins
+@mixin transi($property: all, $duration: 0.2s, $timing: linear, $delay: 0s) {
+    transition: $property $duration $timing $delay;
+}
+
+@mixin ellipsis() {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+@mixin ellipsisLine($line: 1) {
+    display: -webkit-box;
+    overflow: hidden;
+    /*! autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    -webkit-line-clamp: $line;
+    text-overflow: ellipsis;
+}
+
+@mixin scroll($barBgColor: #EDEDED, $barColor: $themeColor) {
+    $barW: 10px;
+
+    scrollbar-width: thin;
+    scrollbar-color: $barColor $barBgColor;
+
+    &::-webkit-scrollbar {
+        width: $barW;
+        background: $barBgColor;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        width: $barW;
+        background: $barColor;
+    }
+
+}
+
+@mixin hiddened() {
+    visibility: hidden;
+    opacity: 0;
+}
+
+@mixin visiabled() {
+    visibility: visible;
+    opacity: 1;
+}

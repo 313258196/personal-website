@@ -7,6 +7,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #ffffff;
+
+    .code {
+        cursor: pointer;
+    }
 
     .menu-btn {
         width: 34px;
@@ -21,6 +26,10 @@
             position: absolute;
             top: 0;
             left: 0;
+
+            &.line0 {
+                border-width: 2px;
+            }
 
             &.line1 {
                 top: 9px;
@@ -45,7 +54,7 @@
     .fixed-block {
         width: 100vw;
         height: 100vh;
-        background-color: rgba($color: #000000, $alpha: .5);
+        background-color: rgba($color: #000000, $alpha: .3);
         position: fixed;
         left: 0;
         top: 0;
@@ -58,6 +67,101 @@
         position: fixed;
         right: 0;
         top: 0;
-        background-color: rgba($color: #000000, $alpha: 1);
+        background-color: #2f2f2f;
+        padding: 40px 24px;
+        box-sizing: border-box;
+        z-index: 1100;
+
+        .close-button {
+            width: 13px;
+            height: 13px;
+            position: absolute;
+            right: 13px;
+            top: 13px;
+            overflow: hidden;
+            text-indent: 13px;
+            font-size: 0.75em;
+            border: none;
+            background-color: transparent;
+            color: transparent;
+            cursor: pointer;
+
+            &:hover {
+
+                &::before,
+                &::after {
+                    background-color: #fff;
+                }
+
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 3px;
+                height: 100%;
+                top: 0;
+                left: 50%;
+                background-color: #bdc3c7;
+                @include transi($property: background-color);
+            }
+
+            &::before {
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+        }
+
+        .nav-item {
+            color: #a5a5a5;
+            margin-left: 10px;
+            font-weight: 400;
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding: 10px;
+            height: 30px;
+            cursor: pointer;
+            @include transi($property: color);
+
+            &:hover {
+                color: #fff;
+            }
+
+            span {
+                display: inline-block;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    display: block;
+                    height: 2.5px;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 50%;
+                    left: -10%;
+                    transform: translateY(-50%);
+                    width: 0%;
+
+                    @include transi($property: width,$duration: 0.3s);
+                }
+            }
+
+            &.active {
+                color: #fff;
+                span {
+                    &::after {
+                        width: 120%;
+                    }
+                }
+            }
+        }
     }
 }

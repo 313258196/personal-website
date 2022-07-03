@@ -6,6 +6,7 @@ import {
     PlusOutlined
 } from '@ant-design/icons';
 import HTransition from "../../components/hTransition/HTransition";
+import { navMenu, NavMenuProps } from "./mock"
 
 export interface HeaderProps {
     className?: string
@@ -13,6 +14,23 @@ export interface HeaderProps {
 
 export const Header: FC<HeaderProps> = props => {
     let { className } = props
+
+    let navM: NavMenuProps[] = navMenu.map((item: String, index: Number) => ({
+        label: item,
+        active: index == 0
+    }))
+    const [navList, dispatchNavList] = useReducer((state: NavMenuProps[], action: { type: String, index: Number | string }) => {
+        switch (action.type) {
+            case "setActive":
+                state.forEach((item: any) => item.active = false)
+                state[action.index as any].active = true
+                // 更新引用地址，才会触发渲染
+                return [...state]
+            default:
+                return state
+        }
+    }, navM)
+
     let classes = classNames("header-block", className, {})
     const drawerStyleProps: React.CSSProperties = {
         backgroundColor: "#2f2f2f",
@@ -42,7 +60,7 @@ export const Header: FC<HeaderProps> = props => {
 
     return (
         <div className={classes}>
-            <span>Z.</span>
+            <span className="code">Z.</span>
             <div className="menu-btn" onClick={showDrawer}>
                 <span className="line line0"></span>
                 <span className="line line1"></span>
@@ -50,22 +68,24 @@ export const Header: FC<HeaderProps> = props => {
             </div>
 
             <HTransition visiable={visible} className="fixed-bg" unmountOnExit>
-                <div className="fixed-block"></div>
+                <div className="fixed-block" onClick={onClose}></div>
             </HTransition>
             <HTransition visiable={visibleNav} className="nav-bar" unmountOnExit>
-                <div className="nav-bar-block"></div>
-            </HTransition>
+                <div className="nav-bar-block">
+                    {
+                        navList.map((item, index) => {
+                            let classes = classNames("nav-item", {
+                                "active": item.active
+                            })
 
-            {/* <Drawer title="" placement="right" onClose={onClose} visible={visible} closable={false} drawerStyle={drawerStyleProps}>
-                <div className="close-block">
-                    <span className="close-box">
-                <PlusOutlined className="icon-close-out" style={{ color: "#bdc3c7",fontWeight:"700",fontSize:"18px" }} rotate={45} />
-                    </span>
+                            return <p className={classes} onClick={() => dispatchNavList({ type: "setActive", index })}>
+                                <span>{item.label}</span>
+                            </p>
+                        })
+                    }
+                    <button className="close-button" id="close-button" onClick={onClose}>Close Menu</button>
                 </div>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-            </Drawer> */}
+            </HTransition>
         </div>
     )
 }
