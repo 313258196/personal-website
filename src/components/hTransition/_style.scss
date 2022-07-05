@@ -124,3 +124,36 @@
 }
 
 // nav-bar
+
+// nav-bar-item
+.nav-item-enter,
+.nav-item-appear {
+    opacity: 0;
+    margin-top: 400px;
+}
+
+.nav-item-enter-active,
+.nav-item-appear-active {
+    opacity: 1;
+    margin-top: 0;
+    transition: opacity .4s cubic-bezier(1, 0.3, 0, 0.7), margin-top .8s cubic-bezier(1, 0.3, 0, 0.7);
+}
+
+.nav-item-enter-done {
+    opacity: 1;
+}
+
+.nav-item-exit {
+    opacity: 1;
+}
+
+.nav-item-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}
+
+.nav-item-exit-done {
+    opacity: 0;
+}
+
+// nav-bar-item

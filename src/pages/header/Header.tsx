@@ -1,35 +1,21 @@
-import React, { FC, useReducer, useState } from "react";
+import React, { FC, useEffect, useReducer, useRef, useState } from "react";
 import classNames from "classnames";
 import { Drawer, Button } from 'antd';
 import {
     CloseOutlined,
     PlusOutlined
 } from '@ant-design/icons';
-import HTransition from "../../components/hTransition/HTransition";
-import { navMenu, NavMenuProps } from "./mock"
+import HTransition, { HTransitionGroup } from "../../components/hTransition/HTransition";
+import { v4 as uuid } from 'uuid';
+import NavBar from "../navBar/NavBar";
 
 export interface HeaderProps {
     className?: string
 }
 
-export const Header: FC<HeaderProps> = props => {
+const Header: FC<HeaderProps> = props => {
     let { className } = props
 
-    let navM: NavMenuProps[] = navMenu.map((item: String, index: Number) => ({
-        label: item,
-        active: index == 0
-    }))
-    const [navList, dispatchNavList] = useReducer((state: NavMenuProps[], action: { type: String, index: Number | string }) => {
-        switch (action.type) {
-            case "setActive":
-                state.forEach((item: any) => item.active = false)
-                state[action.index as any].active = true
-                // 更新引用地址，才会触发渲染
-                return [...state]
-            default:
-                return state
-        }
-    }, navM)
 
     let classes = classNames("header-block", className, {})
     const drawerStyleProps: React.CSSProperties = {
@@ -37,25 +23,19 @@ export const Header: FC<HeaderProps> = props => {
         padding: "16px 0"
     }
 
-    const [visible, setVisible] = useState(false);
-    const [visibleNav, dispatchNav] = useReducer((state: Boolean, action: String): Boolean => {
-        switch (action) {
-            case "true":
-                return true
-            case "false":
-                return false
-            default:
-                return false
-        }
-    }, false);
-
+    // let timer = null;
+    // useEffect(() => {
+    //     // timer = setTimeout(() => {
+    //     //     dispatchNavList({ type: "pushNewOne" })
+    //     // }, 3000);
+    // }, [timer])
+    const navBarRef = useRef(null)
+    
     const showDrawer = () => {
-        setVisible(true);
-        dispatchNav("true")
-    };
-    const onClose = () => {
-        setVisible(false);
-        dispatchNav("false")
+        console.log(111111111,(navBarRef.current as any));
+        (navBarRef.current as any).setVisible(true);
+        (navBarRef.current as any).dispatchNav("true");
+        (navBarRef.current as any).showNavItem(0);
     };
 
     return (
@@ -67,25 +47,7 @@ export const Header: FC<HeaderProps> = props => {
                 <span className="line line2"></span>
             </div>
 
-            <HTransition visiable={visible} className="fixed-bg" unmountOnExit>
-                <div className="fixed-block" onClick={onClose}></div>
-            </HTransition>
-            <HTransition visiable={visibleNav} className="nav-bar" unmountOnExit>
-                <div className="nav-bar-block">
-                    {
-                        navList.map((item, index) => {
-                            let classes = classNames("nav-item", {
-                                "active": item.active
-                            })
-
-                            return <p className={classes} onClick={() => dispatchNavList({ type: "setActive", index })}>
-                                <span>{item.label}</span>
-                            </p>
-                        })
-                    }
-                    <button className="close-button" id="close-button" onClick={onClose}>Close Menu</button>
-                </div>
-            </HTransition>
+            <NavBar ref={navBarRef}/>
         </div>
     )
 }
