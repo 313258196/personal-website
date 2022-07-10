@@ -55,6 +55,7 @@ const Language: FC<LanguageProps> = (props) => {
 
     const location = useLocation()
     const routerName = () => {
+        console.log(11111,location)
         let { hash } = location
 
         if (flag) { return }

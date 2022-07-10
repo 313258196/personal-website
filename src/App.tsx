@@ -14,16 +14,25 @@ import {
 
 const App = () => {
     const routes = useRoutes([
-        { path: '/', element: <Index /> },
+        {
+            path: '/', element: <Index />,
+            // children:[
+            //     {
+            //         path:'/:lang',
+            //         element: <Index />
+            //     }
+            // ]
+        },
         { path: '*', element: <NotFound /> },
     ]);
 
     return <Language>{routes}</Language>
 };
 
+// basename='/jobfairViewscreen'
 const AppWrapper = () => {
     return (
-        <div className='App'>            
+        <div className='App'>
             <GlobalStyle />
             <Router>
                 <App />

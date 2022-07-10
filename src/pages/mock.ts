@@ -5,6 +5,7 @@ export interface NavMenuProps {
     active:Boolean
 }
 
+// nav menu 
 export const NavMenu = ():string[] => {
     let { t } = useTranslation()
 
@@ -19,5 +20,16 @@ export const NavMenu = ():string[] => {
         t('nav.testimonial'),
         t('nav.blog'),
         t('nav.contact'),
+    ]
+}
+
+// intro self
+export const IntroSelf = () => {
+    let { t } = useTranslation()
+
+    return [
+        t('page.intro1'),
+        t('page.intro2'),
+        t('page.intro3'),
     ]
 }

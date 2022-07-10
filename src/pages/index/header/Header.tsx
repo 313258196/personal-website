@@ -5,7 +5,7 @@ import {
     CloseOutlined,
     PlusOutlined
 } from '@ant-design/icons';
-import HTransition, { HTransitionGroup } from "../../components/hTransition/HTransition";
+import HTransition, { HTransitionGroup } from "../../../components/hTransition/HTransition";
 import { v4 as uuid } from 'uuid';
 import NavBar from "../navBar/NavBar";
 import { useTranslation, Trans, Translation } from 'react-i18next'
