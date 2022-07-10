@@ -6,7 +6,7 @@ const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 const Header: FC = () => {
-    let { t } = useTranslation()          // 加载组件
+    let { t } = useTranslation()
 
     return (
         <div className="">

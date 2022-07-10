@@ -1,5 +1,18 @@
 {
     "test words":"test words",
-    "home":"home",
-    "welcome":"welcome"
+    "welcome":"welcome",
+
+    "page.logoTxt":"Z.",
+    "page.notFound":"page 404",
+
+    "nav.home":"HOME",
+    "nav.about":"ABOUT",
+    "nav.work":"WORK",
+    "nav.services":"SERVICES",
+    "nav.employement":"EMPLOYEMENT",
+    "nav.skills":"SKILLS",
+    "nav.education":"EDUCATION",
+    "nav.testimonial":"TESTIMONIAL",
+    "nav.blog":"BLOG",
+    "nav.contact":"CONTACT"
 }

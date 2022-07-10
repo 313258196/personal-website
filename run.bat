@@ -1,1 +1,1 @@
-start cmd /k "npm run start --open"
+start cmd /k "npm i & npm run start --open"

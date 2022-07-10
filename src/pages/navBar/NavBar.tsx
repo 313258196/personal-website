@@ -1,9 +1,10 @@
 import { FC, forwardRef, useImperativeHandle, useReducer, useState } from "react";
 import HTransition, { HTransitionGroup } from "../../components/hTransition/HTransition";
-import { navMenu, NavMenuProps } from "../mock"
+import { NavMenu, NavMenuProps } from "../mock"
 import classNames from "classnames";
 
 const NavBar = forwardRef((props, ref) => {
+    const navMenu: string[] = NavMenu()
 
     const [visible, setVisible] = useState(false);
     const [visibleNav, dispatchNav] = useReducer((state: Boolean, action: String): Boolean => {

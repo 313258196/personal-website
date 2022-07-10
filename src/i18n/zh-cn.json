@@ -1,5 +1,18 @@
 {
     "test words":"测试文字",
-    "home":"首页",
-    "welcome":"欢迎来首页"
+    "welcome":"欢迎来首页",
+    
+    "page.logoTxt":"燚.",
+    "page.notFound":"页面不存在",
+
+    "nav.home":"首页",
+    "nav.about":"关于",
+    "nav.work":"工作",
+    "nav.services":"服务",
+    "nav.employement":"工作经历",
+    "nav.skills":"技能",
+    "nav.education":"教育",
+    "nav.testimonial":"证书",
+    "nav.blog":"博客",
+    "nav.contact":"联系方式"
 }

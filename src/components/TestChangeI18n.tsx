@@ -7,6 +7,7 @@ import i18n from '../i18n';         //  引入 i18n 初始化模块
 import { ConfigProvider } from 'antd';
 import Header from '../components/Header';
 import MyButton from '../components/MyButton';
+import Index from '../pages';
 
 function TestChangeI18n() {
     // 注意： 如果使用非响应式数据，当数据变化后 ，页面将不更新。 

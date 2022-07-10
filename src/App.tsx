@@ -1,18 +1,35 @@
 import './App.css';
-import TestChangeI18n from './components/TestChangeI18n';
 import { GlobalStyle } from './style';
 import Index from './pages';
 import './styles/index.scss';
+import Language from './i18n/Language';
+import NotFound from './pages/notFound/NotFound';
+// router 
+import {
+    Route, Routes, Navigate,
+    BrowserRouter as Router,
+    // HashRouter as Router,
+    Link, Outlet, useRoutes
+} from 'react-router-dom'
 
 const App = () => {
-    return (
-        <>
-            <GlobalStyle />
-            <div className="App">
-                <Index />
-            </div>
-        </>
-    );
-}
+    const routes = useRoutes([
+        { path: '/', element: <Index /> },
+        { path: '*', element: <NotFound /> },
+    ]);
 
-export default App;
+    return <Language>{routes}</Language>
+};
+
+const AppWrapper = () => {
+    return (
+        <div className='App'>            
+            <GlobalStyle />
+            <Router>
+                <App />
+            </Router>
+        </div>
+    );
+};
+
+export default AppWrapper;
