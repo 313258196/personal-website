@@ -13,7 +13,7 @@ jobs:
     - name: actions/setup-node@v2
       uses: actions/setup-node@v2   
       with:
-        node: 16.14
+        node-version: 16.14
     # 配置依赖缓存
     - name: yarn cache
       id: yarn-cahce-dir-path
