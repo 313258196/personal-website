@@ -1,6 +1,7 @@
 import './App.css';
 import { GlobalStyle } from './style';
 import Index from './pages';
+import Test from './pages/test/Test';
 import './styles/index.scss';
 import Language from './i18n/Language';
 import NotFound from './pages/notFound/NotFound';
@@ -15,6 +16,9 @@ const App = () => {
     const routes = useRoutes([
         {
             path: '/', element: <Index />,
+        },
+        {
+            path: '/test', element: <Test />,
         },
         { path: '*', element: <NotFound /> },
     ]);
