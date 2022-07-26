@@ -1,6 +1,6 @@
 {
     "name": "personal-website",
-    "homepage": "https://313258196.github.io/personal-website",
+    "homepage": "./",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
