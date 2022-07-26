@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "homepage": "https://313258196.github.io/personal-website",
+    "name": "personal-website",
+    "homepage": ".",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -31,7 +31,7 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "set PORT=8000 && react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",

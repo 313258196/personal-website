@@ -4,7 +4,6 @@ import Index from './pages';
 import './styles/index.scss';
 import Language from './i18n/Language';
 import NotFound from './pages/notFound/NotFound';
-// router 
 import {
     Route, Routes, Navigate,
     BrowserRouter as Router,
@@ -16,12 +15,6 @@ const App = () => {
     const routes = useRoutes([
         {
             path: '/', element: <Index />,
-            // children:[
-            //     {
-            //         path:'/:lang',
-            //         element: <Index />
-            //     }
-            // ]
         },
         { path: '*', element: <NotFound /> },
     ]);
