@@ -1,6 +1,6 @@
 {
     "name": "personal-website",
-    "homepage": "https://313258196.github.io/personal-website",
+    "homepage": ".",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -14,7 +14,6 @@
         "@types/react-dom": "^18.0.4",
         "antd": "^4.20.5",
         "classnames": "^2.3.1",
-        "gh-pages": "^4.0.0",
         "i18next-browser-languagedetector": "^6.1.4",
         "i18next-http-backend": "^1.4.0",
         "node-sass": "^7.0.1",
@@ -27,7 +26,7 @@
         "react-transition-group": "^4.4.2",
         "styled-components": "^5.3.5",
         "typescript": "^4.6.4",
-        "uuid": "^8.3.2", 
+        "uuid": "^8.3.2",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
@@ -36,9 +35,7 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "storybook": "start-storybook -p 6006 -s public",
-        "build-storybook": "build-storybook -s public",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
+        "build-storybook": "build-storybook -s public"
     },
     "browserslist": {
         "production": [

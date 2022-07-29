@@ -6,24 +6,3 @@
     width: 100vw;
     overflow: hidden;
 }
-
-
-.item-enter {
-    /* opacity: 0; */
-    margin-top: 20px;
-}
-
-.item-enter-active {
-    /* opacity: 1; */
-    margin-top: 0;
-    transition: opacity 500ms ease-in,margin-top 500ms ease-in;
-}
-
-.item-exit {
-    opacity: 1;
-}
-
-.item-exit-active {
-    opacity: 0;
-    transition: opacity 500ms ease-in;
-}
