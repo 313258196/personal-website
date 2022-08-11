@@ -1,12 +1,21 @@
-import { FC, forwardRef, useImperativeHandle, useReducer, useState } from "react";
+import React, { FC, forwardRef, useImperativeHandle, useReducer, useState } from "react";
 import HTransition, { HTransitionGroup } from "../../../components/hTransition/HTransition";
 import { NavMenu, NavMenuProps } from "../../mock"
 import classNames from "classnames";
+import { switchLanguage } from "../../../utils/index"
+import {
+    useLocation,
+    useNavigate
+} from 'react-router-dom'
+import i18n from "../../../i18n";
 
 const NavBar = forwardRef((props, ref) => {
+    let location = useLocation();
+    let navigate = useNavigate();
     const navMenu: string[] = NavMenu()
 
     const [visible, setVisible] = useState(false);
+    const [a, seta] = useState(false);
     const [visibleNav, dispatchNav] = useReducer((state: Boolean, action: String): Boolean => {
         switch (action) {
             case "true":
@@ -18,11 +27,17 @@ const NavBar = forwardRef((props, ref) => {
         }
     }, false);
 
+    const doit = () => {
+        console.log(i18n)
+        // navigate("/", { replace: true });
+    }
+
     let navM: NavMenuProps[] = navMenu.map((item: String, index: Number) => ({
         label: item,
         active: index == 0
     }))
     const [navList, dispatchNavList] = useReducer((state: NavMenuProps[], action: {
+        el?: React.MouseEvent
         type: String
         index?: number | string
     }) => {
@@ -30,6 +45,15 @@ const NavBar = forwardRef((props, ref) => {
             case "setActive":
                 state.forEach((item: any) => item.active = false)
                 state[action.index as any].active = true
+
+                // the button named 'switch language'
+                if (action.index === state.length - 1) {
+                    action.el?.preventDefault();
+                    switchLanguage({ location, navigate });
+                    // seta(true)
+                    // doit()
+                }
+
                 // 更新引用地址，才会触发渲染
                 return [...state]
             case "pushNewOne":
@@ -85,7 +109,7 @@ const NavBar = forwardRef((props, ref) => {
                                 return (
                                     <HTransition key={index} className="nav-item" timeout={1000}>
                                         <div>
-                                            <a href={`#${item.label}`} className={classes} onClick={() => dispatchNavList({ type: "setActive", index })}>
+                                            <a href={`#${item.label}`} className={classes} onClick={e => dispatchNavList({ el: e, type: "setActive", index })}>
                                                 <span>{item.label}</span>
                                             </a>
                                         </div>

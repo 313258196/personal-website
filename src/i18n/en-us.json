@@ -2,7 +2,7 @@
     "test words":"test words",
     "welcome":"welcome",
 
-    "page.logoTxt":"Z.",
+    "page.logoTxt":"E.",
     "page.notFound":"page 404",
     "page.hello":"Hello",
     "page.intro1":"I'm a Web Designer",
@@ -18,5 +18,6 @@
     "nav.education":"EDUCATION",
     "nav.testimonial":"TESTIMONIAL",
     "nav.blog":"BLOG",
-    "nav.contact":"CONTACT"
+    "nav.contact":"CONTACT",
+    "nav.language":"SWITCH TO CHINESE"
 }

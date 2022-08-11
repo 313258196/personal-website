@@ -1,5 +1,7 @@
+import { useLocation, useNavigate } from "react-router-dom"
+import i18n, { LangType } from "../i18n/index"
 
-// 打字机
+// 打字机 typewriter
 export const typewriter: Function = (arr: string[], fn?: Function) => {
     let idx = 0
     let idxSub = 1
@@ -44,4 +46,13 @@ export const typewriter: Function = (arr: string[], fn?: Function) => {
     }
 
     doit()
+}
+
+export const switchLanguage: Function = ({ navigate, location }: { navigate: any, location: any }) => {
+    let pathNameArr = location.pathname.split("/")
+
+    const englishBoo = i18n.language === LangType.en
+    pathNameArr[1] = englishBoo ? LangType.ZH : LangType.EN
+
+    navigate(pathNameArr.join("/") || "/", { replace: true });
 }

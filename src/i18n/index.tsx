@@ -7,7 +7,9 @@ import { initReactI18next } from 'react-i18next';
 
 export enum LangType{
     ZH = 'zh-CN',
+    zh = 'zh',
     EN = 'en-US',
+    en = 'en'
 }
 
 i18n

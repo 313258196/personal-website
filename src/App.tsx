@@ -9,21 +9,23 @@ import {
     Route, Routes, Navigate,
     BrowserRouter as Router,
     // HashRouter as Router,
-    Link, Outlet, useRoutes
+    Link, Outlet, useRoutes,
+    useLocation
 } from 'react-router-dom'
 
 const App = () => {
-    const routes = useRoutes([
-        {
-            path: '/', element: <Index />,
-        },
-        {
-            path: '/test', element: <Test />,
-        },
-        { path: '*', element: <NotFound /> },
-    ]);
-
-    return <Language>{routes}</Language>
+    return (
+        <Language>
+            <Routes>
+                <Route exact={ true } path="/" element={<Index />}>
+                    <Route path=":lang/" >
+                        {/* 子路由 配合<Outlet />使用
+                        <Route path="test" element={<Test />}></Route> */}
+                    </Route>
+                </Route>
+            </Routes>
+        </Language>
+    )
 };
 
 // basename='/jobfairViewscreen'

@@ -20,6 +20,7 @@ export const NavMenu = ():string[] => {
         t('nav.testimonial'),
         t('nav.blog'),
         t('nav.contact'),
+        t('nav.language'),
     ]
 }
 

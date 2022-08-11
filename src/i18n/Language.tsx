@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import enUS from 'antd/lib/locale/en_US';        // 引入antd 语言包
 import zhCN from 'antd/lib/locale/zh_CN';
 import moment from 'moment';
@@ -15,7 +15,7 @@ export interface LanguageProps {
     children: ReactNode
 }
 const Language: FC<LanguageProps> = (props) => {
-    // http://localhost:3000/#zh-CN
+    // http://192.168.2.43:8000/zh-CN
     const { children } = props
 
     // 注意： 如果使用非响应式数据，当数据变化后 ，页面将不更新。 
@@ -34,39 +34,45 @@ const Language: FC<LanguageProps> = (props) => {
         setFlag(true)
         switch (lType) {
             case LangType.EN:
-                i18n.changeLanguage('en')     // 更改i18n语言  
-                moment.locale('en');          // 更改antd组件语言 
+                i18n.changeLanguage(LangType.en)     // 更改i18n语言  
+                moment.locale(LangType.en);          // 更改antd组件语言 
 
                 setPreLang(LangType.EN)
                 setPreName("切换中文")
                 setLocale(enUS)               // 引入antd组件依赖的模块 
                 break;
             case LangType.ZH:
-                i18n.changeLanguage('zh')
-                moment.locale('zh-cn');
+                i18n.changeLanguage(LangType.zh)
+                moment.locale(LangType.zh);
 
                 setPreLang(LangType.ZH)
                 setPreName("切换英文")
                 setLocale(zhCN)
                 break;
         }
+        // setFlag(false)
     }
 
 
     const location = useLocation()
     const routerName = () => {
-        console.log(11111,location)
-        let { hash } = location
+        let { pathname } = location
+        console.log(444,flag)
 
         if (flag) { return }
-        if (hash.indexOf(LangType.ZH) !== -1) {
+        console.log(555,flag)
+        if (pathname.indexOf(LangType.ZH) !== -1) {
             changeLang({ lType: LangType.ZH })
         }
-        if (hash.indexOf(LangType.EN) !== -1) {
+        if (pathname.indexOf(LangType.EN) !== -1) {
             changeLang({ lType: LangType.EN })
         }
     }
-    routerName()
+
+    useEffect(() => {
+        console.log(333)
+        routerName()
+    })
 
     return (
         <div className="TestChangeI18n">

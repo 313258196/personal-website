@@ -9,15 +9,16 @@ import zhCN from 'antd/lib/locale/zh_CN';
 import enGB from 'antd/lib/locale/en_GB';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <ConfigProvider locale={enGB}>
-      <App />
+    <ConfigProvider locale={ enGB }>
+        <App />
     </ConfigProvider>
-  </React.StrictMode>
 );
+
+//   // <React.StrictMode>
+//   {/* </React.StrictMode> */ }
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
