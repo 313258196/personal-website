@@ -57,10 +57,10 @@ const Language: FC<LanguageProps> = (props) => {
     const location = useLocation()
     const routerName = () => {
         let { pathname } = location
-        console.log(444,flag)
+        console.log('Language flag...',flag)
 
         if (flag) { return }
-        console.log(555,flag)
+        console.log('Language flag 2...',flag)
         if (pathname.indexOf(LangType.ZH) !== -1) {
             changeLang({ lType: LangType.ZH })
         }
@@ -70,7 +70,7 @@ const Language: FC<LanguageProps> = (props) => {
     }
 
     useEffect(() => {
-        console.log(333)
+        console.log("Language...")
         routerName()
     })
 

@@ -12,8 +12,12 @@ import {
     Link, Outlet, useRoutes,
     useLocation
 } from 'react-router-dom'
+import { useEffect } from 'react';
 
 const App = () => {
+    useEffect(() => {
+        console.log("App...")
+    })
     return (
         <Language>
             <Routes>
@@ -30,6 +34,9 @@ const App = () => {
 
 // basename='/jobfairViewscreen'
 const AppWrapper = () => {
+    useEffect(() => {
+        console.log("AppWrapper...")
+    })
     return (
         <div className='App'>
             <GlobalStyle />
