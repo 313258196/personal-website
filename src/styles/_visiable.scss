@@ -1,3 +1,41 @@
+// 主题色
+$theme-global-color: #1787fb;
+$theme-global-color-hover: rgba($theme-global-color, .8);
+$theme-global-color-deep-hover: #1070d4;
+
+// 灰色调
+$theme-color-gray1: #f8f8f8;
+
+// 页面背景底色
+$theme-content-background: #f3f3f3;
+
+// 字体颜色
+$theme-txt-main: #303133;
+$theme-txt-normal: #606266;
+$theme-txt-secondary: #909399;
+$theme-txt-seat: #C0C4CC;
+
+// 边框线 线条颜色
+$theme-border-one: #DCDFE6;
+$theme-border-two: #E4E7ED;
+$theme-border-three: #EBEEF5;
+$theme-border-four: #F2F6FC;
+
+// 基础黑白色
+$theme-base-white: #FFFFFF;
+$theme-base-black: #000000;
+
+// 辅助色
+$theme-auxiliary-success: #67C23A;
+$theme-auxiliary-warning: #E6A23C;
+$theme-auxiliary-danger: #F56C6C;
+$theme-auxiliary-info: #909399;
+
+// 钱的颜色
+$theme-global-money: #fd7240;
+
+// 以上基础色 __STATIC__
+
 // mixins
 @mixin transi($property: all, $duration: 0.2s, $timing: linear, $delay: 0s) {
     transition: $property $duration $timing $delay;
@@ -51,4 +89,38 @@
 // css className
 .fm{
     font-family: 'Roboto Slab', serif;
+}
+
+.df {
+	display: flex;
+
+	&.bet {
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&.bet-only {
+		justify-content: space-between;
+	}
+
+	&.end-only {
+		justify-content: flex-end;
+	}
+
+	&.jcc {
+		justify-content: center;
+		align-items: center;
+	}
+
+	&.jcc-only {
+		justify-content: center;
+	}
+
+	&.fww {
+		flex-wrap: wrap;
+	}
+
+	&.als {
+		align-items: flex-start;
+	}
 }

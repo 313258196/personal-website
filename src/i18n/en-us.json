@@ -19,5 +19,18 @@
     "nav.testimonial":"TESTIMONIAL",
     "nav.blog":"BLOG",
     "nav.contact":"CONTACT",
-    "nav.language":"SWITCH TO CHINESE"
+    "nav.language":"SWITCH TO CHINESE",
+    
+    "about.description":"Design is the method of putting form and content together. Design, just as art, has multiple definitions there is no single definition. Design can be art. Design can be aesthetics. Design is so simple, that's why it is so complicated.",
+    "about.nameLabel":"Name",
+    "about.name":"Mr. Zoe",
+    "about.phoneLabel":"Phone",
+    "about.phone":"15179364835",
+    "about.emailLabel":"Email",
+    "about.email1":"313258196@qq.com",
+    "about.email2":"zongyizhang19@gmail.com",
+    "about.addressLabel":"Address",
+    "about.address":"Shangrao Country,Shangrao City,Jiangxi Province",
+    "about.skypeLabel":"Skype",
+    "about.skype":"zongyizhang19@gmail.com"
 }
