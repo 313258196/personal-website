@@ -50,8 +50,6 @@ const NavBar = forwardRef((props, ref) => {
                 if (action.index === state.length - 1) {
                     action.el?.preventDefault();
                     switchLanguage({ location, navigate });
-                    // seta(true)
-                    // doit()
                 }
 
                 // 更新引用地址，才会触发渲染

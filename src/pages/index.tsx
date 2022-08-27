@@ -14,15 +14,6 @@ import HTransition from "../components/hTransition/HTransition";
 import { LangType } from "../i18n/index"
 
 export const Index: FC<{}> = props => {
-    let location = useLocation();
-    let navigate = useNavigate();
-    // const rs1 = location.pathname.split("/").indexOf(LangType.EN);
-    // const rs2 = location.pathname.split("/").indexOf(LangType.ZH);
-    // if (rs1 === -1 && rs2 === -1) {
-    //     var redirectPath = LangType.ZH + location.pathname
-    //     navigate(redirectPath, { replace: true });
-    // }
-
     const coverRef = useRef(null)
     const [coverVisiable, dispatchCover] = useReducer((state: Boolean, action: Boolean) => {
         return action

@@ -54,5 +54,6 @@ export const switchLanguage: Function = ({ navigate, location }: { navigate: any
     const englishBoo = i18n.language === LangType.en
     pathNameArr[1] = englishBoo ? LangType.ZH : LangType.EN
 
+    console.log(11111111,pathNameArr.join("/") || "/")
     navigate(pathNameArr.join("/") || "/", { replace: true });
 }
