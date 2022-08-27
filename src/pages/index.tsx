@@ -11,8 +11,6 @@ import Container from "./index/container/Container";
 import Cover from "./index/cover/Cover";
 import HTransition from "../components/hTransition/HTransition";
 
-import { LangType } from "../i18n/index"
-
 export const Index: FC<{}> = props => {
     const coverRef = useRef(null)
     const [coverVisiable, dispatchCover] = useReducer((state: Boolean, action: Boolean) => {
@@ -20,7 +18,6 @@ export const Index: FC<{}> = props => {
     }, true)
 
     useEffect(() => {
-        console.log("Index...")
         setTimeout(() => {
             dispatchCover(false)
         }, 1000);

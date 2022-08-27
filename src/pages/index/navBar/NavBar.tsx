@@ -1,21 +1,23 @@
-import React, { FC, forwardRef, useImperativeHandle, useReducer, useState } from "react";
+import React, { FC, forwardRef, useContext, useImperativeHandle, useReducer, useState } from "react";
 import HTransition, { HTransitionGroup } from "../../../components/hTransition/HTransition";
 import { NavMenu, NavMenuProps } from "../../mock"
 import classNames from "classnames";
-import { switchLanguage } from "../../../utils/index"
 import {
     useLocation,
     useNavigate
 } from 'react-router-dom'
 import i18n from "../../../i18n";
 
+import { GlobalContext } from "../../../i18n/Language";
+
 const NavBar = forwardRef((props, ref) => {
     let location = useLocation();
     let navigate = useNavigate();
     const navMenu: string[] = NavMenu()
 
+    const gContext = useContext(GlobalContext)
+
     const [visible, setVisible] = useState(false);
-    const [a, seta] = useState(false);
     const [visibleNav, dispatchNav] = useReducer((state: Boolean, action: String): Boolean => {
         switch (action) {
             case "true":
@@ -26,11 +28,6 @@ const NavBar = forwardRef((props, ref) => {
                 return false
         }
     }, false);
-
-    const doit = () => {
-        console.log(i18n)
-        // navigate("/", { replace: true });
-    }
 
     let navM: NavMenuProps[] = navMenu.map((item: String, index: Number) => ({
         label: item,
@@ -49,7 +46,7 @@ const NavBar = forwardRef((props, ref) => {
                 // the button named 'switch language'
                 if (action.index === state.length - 1) {
                     action.el?.preventDefault();
-                    switchLanguage({ location, navigate });
+                    (gContext as any).changeLang({ switchLanguage: (gContext as any).preLanguage, counter: true })
                 }
 
                 // 更新引用地址，才会触发渲染

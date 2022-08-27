@@ -1,24 +1,36 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { ConfigProvider } from 'antd';
-import zhCN from 'antd/lib/locale/zh_CN';
-import enGB from 'antd/lib/locale/en_GB';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { ReactNode } from 'react';
+
+import { LanguageEnum } from './i18n/i18n-types';
+
+// components 
+import App from './App';
+import Language from './i18n/Language';
+
+// redirect to route with language 
+const RequireAuth: Function = ({ children }: { children: ReactNode }) => {
+    const loca = useLocation()
+    let langPath = loca.pathname.split("/")
+    let langArrs = Object.values(LanguageEnum)
+    return langArrs.indexOf(langPath[1]) === -1 ? <Navigate to={`/${LanguageEnum.ZH_CN}` + loca.pathname} replace /> : children;
+}
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
-    <ConfigProvider locale={ enGB }>
-        <App />
-    </ConfigProvider>
+    <Router>
+        <Routes>
+            <Route path="/" element={<RequireAuth><App /></RequireAuth>}>
+                <Route path=":lang/" element={<Language />}></Route>
+            </Route>
+        </Routes>
+    </Router>
 );
-
-//   // <React.StrictMode>
-//   {/* </React.StrictMode> */ }
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
