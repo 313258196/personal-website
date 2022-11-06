@@ -1,4 +1,4 @@
-import { createContext, FC, ReactNode, useReducer, useState } from 'react';
+import { createContext, FC, ReactNode, useEffect, useReducer, useState } from 'react';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import i18n from '../i18n';         //  引入 i18n 初始化模块
@@ -25,12 +25,21 @@ const Language: FC<LanguageProps> = (props) => {
     const changeLang = (props: { switchLanguage: LanguageEnum, counter?: Boolean }) => {
         let { switchLanguage, counter } = props
         // reload href for switch language 
+            console.log(333333,switchLanguage)
         if (counter) {
+            console.log(111111)
+
+            // console.log(1111111,location.origin,preLanguage,LanguageEnum.ZH_CN);
+            // return 
+
             switchLanguage = preLanguage === LanguageEnum.ZH_CN ? LanguageEnum.EN_GB : LanguageEnum.ZH_CN
-            // navigator(`/${switchLanguage}`, { replace: true })
-            location.replace(location.origin + `/${switchLanguage}`)
+            // // navigator(`/#/${switchLanguage}`, { replace: true })
+
+            location.replace(location.origin + `/#/${switchLanguage}`)
             return
         }
+
+        console.log(2222222222)
 
         if (preLanguage === switchLanguage) { return }
 
@@ -51,7 +60,9 @@ const Language: FC<LanguageProps> = (props) => {
     // // let {i18n} = useTranslation()          // 加载i18n组件
     // // 引入组件的翻译， 是需要使用变量的形式引入  {} , 而并非是静态的字符串
 
-    changeLang({ switchLanguage: currentLanguage })
+    useEffect(() => {
+        changeLang({ switchLanguage: currentLanguage })
+    },[]);
     return (
         <div className="TestChangeI18n">
             {/*切换按钮, 传入触发事件的函数 和 显示文字的变量  */}

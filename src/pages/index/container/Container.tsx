@@ -19,7 +19,6 @@ import HPictureFade from "../../../components/hPictureFade/HPictureFade";
 import { AppstoreOutlined, CustomerServiceOutlined, PaperClipOutlined, ShareAltOutlined, ShopOutlined, TagOutlined } from "@ant-design/icons";
 
 const Container: FC = () => {
-    console.log(3333333)
     let { t } = useTranslation()
     const introSelf = IntroSelf()
 

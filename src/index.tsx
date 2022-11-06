@@ -2,7 +2,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { 
+    // BrowserRouter as Router, 
+    HashRouter as Router, 
+    Routes, 
+    Route, 
+    useLocation, 
+    Navigate 
+} from 'react-router-dom';
 import { ReactNode } from 'react';
 
 import { LanguageEnum } from './i18n/i18n-types';
@@ -13,9 +20,12 @@ import Language from './i18n/Language';
 
 // redirect to route with language 
 const RequireAuth: Function = ({ children }: { children: ReactNode }) => {
+    console.log("444444...")
     const loca = useLocation()
     let langPath = loca.pathname.split("/")
     let langArrs = Object.values(LanguageEnum)
+
+    console.log("RequireAuth...",langArrs.indexOf(langPath[1]) === -1)
     return langArrs.indexOf(langPath[1]) === -1 ? <Navigate to={`/${LanguageEnum.ZH_CN}` + loca.pathname} replace /> : children;
 }
 
