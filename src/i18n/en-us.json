@@ -20,6 +20,8 @@
     "nav.blog":"BLOG",
     "nav.contact":"CONTACT",
     "nav.language":"SWITCH TO CHINESE",
+
+    "title.default":"Title",
     
     "about.description":"Design is the method of putting form and content together. Design, just as art, has multiple definitions there is no single definition. Design can be art. Design can be aesthetics. Design is so simple, that's why it is so complicated.",
     "about.nameLabel":"Name",
@@ -32,5 +34,25 @@
     "about.addressLabel":"Address",
     "about.address":"Shangrao Country,Shangrao City,Jiangxi Province",
     "about.skypeLabel":"Skype",
-    "about.skype":"zongyizhang19@gmail.com"
+    "about.skype":"zongyizhang19@gmail.com",
+    
+    "work.title":"Work",
+    "work.picture1.txt":"MY RESUME",
+    "work.picture2.txt":"PANGIRUTAN",
+    "work.picture3.txt":"BLACK MUG",
+    "work.picture4.txt":"NOTEBOOK MOCKUP",
+    
+    "service.title":"Services",
+    "service.mo1.txt":"MARKETING",
+    "service.mo2.txt":"WEB DESIGN",
+    "service.mo3.txt":"UI",
+    "service.mo4.txt":"DIRECTOR",
+    "service.mo5.txt":"UX DESIGN",
+    "service.mo6.txt":"FRONT END",
+    "service.mo1.desc":"Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem.",
+    "service.mo2.desc":"Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem.",
+    "service.mo3.desc":"Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem.",
+    "service.mo4.desc":"Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem.",
+    "service.mo5.desc":"Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem.",
+    "service.mo6.desc":"Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem."
 }

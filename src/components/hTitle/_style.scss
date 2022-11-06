@@ -1,0 +1,22 @@
+.hTitle-block {
+    font-size: 24px;
+    color: #2f2f2f;
+    letter-spacing: 0.8px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    position: relative;
+    margin: 20px 0 10px;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+
+        bottom: -20px;
+        height: 3px;
+        background: #DEDEDE;
+        width: 28px;
+
+        left: 0;
+    }
+}

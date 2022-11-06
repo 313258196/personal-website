@@ -301,6 +301,7 @@
         .about-carousel {
             height: 660px;
             width: 100%;
+            background-color: #fff;
 
             .slick-list {
                 height: 100%;
@@ -313,7 +314,7 @@
                     width: 290px;
                     margin: 0 auto;
                     margin-top: 50%;
-                    transform: translateY(-25%);
+                    transform: translateY(-50%);
 
                     .head-about {
                         font-size: 13px;
@@ -351,6 +352,82 @@
                 }
 
             }
+        }
+
+        .oul{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            li{
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: #979797;
+                margin: 0 8px;
+                cursor: pointer;
+                @include transi();
+
+                &:hover{
+                    background-color: #2f2f2f;
+                }
+
+                &.active{
+                    background-color: #2f2f2f;
+                }
+            }
+        }
+    }
+
+    .work-block{
+        padding: 130px 0;
+        background-color: #f3f3f3;
+
+        &.service-block{
+            background-color: #fff;
+
+            .service-pics-block{
+                margin-top: 20px;
+
+                .service-col-item{
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+            }
+
+            .services-b-icon{
+                
+            }
+            .services-b-title{
+                font-size: 13px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                margin-top: 15px;
+                margin-bottom: 20px;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 700;
+            }
+            .services-b-desc{
+                letter-spacing: 0.5px;
+                font-size: 13px;
+                font-weight: 300;
+                color: #434343;
+                line-height: 26px;
+                margin-bottom: 60px;
+            }
+        }
+        .work-personal-bg{
+            padding-right: 30px;
+            box-sizing: border-box;
+        }
+        .work-b-desc{
+            margin-top: 70px;
+            line-height: 30px;
+            font-size: 14px;
         }
     }
 }

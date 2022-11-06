@@ -1,0 +1,45 @@
+.hPictureFade-block{
+    width: 100%;
+    position: relative;
+
+    .hp-img{
+        display: block;
+        width: 100%;
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+        transition: filter, transform, 0.5s;
+        transform: scale(1);
+    }
+
+    .hp-cover{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+
+        .hp-cover-main{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+    }
+
+    &:hover{
+        .hp-cover{
+            opacity: .8;
+        }
+        .hp-img{
+            filter: grayscale(0%);
+            -webkit-filter: grayscale(0%);
+            // transform: scale(1.1);
+        }
+    }
+}
